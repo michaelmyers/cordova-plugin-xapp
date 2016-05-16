@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <!--<link rel="stylesheet" type="text/css" href="components/topcoat/css/topcoat-desktop-dark.css"> -->
+        <link rel="stylesheet" type="text/css" href="components/skeleton/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="components/skeleton/css/skeleton.css">
+
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <title>XAPP Plugin</title>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!-- just use a number and class 'column' or 'columns' -->
+            <div class="row">
+                <div class="two columns">
+                    <p id="version"> </p>
+                </div>
+                <div class="offset-by-two three columns" style="display:none;">
+                    <span id="deviceready" class="status-indicator received blink">Device Ready</span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="ten columns">
+                    <h4>XAPP Playback</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-half column">
+                    <button id="startSessionButton" class="button-primary">
+                        Start Session
+                    </button>
+                </div>
+                <div class="one-half column">
+                    <p id="startSessionStatus"></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-half column">
+                    <button id="requestAdButton" class="button-primary">
+                        Request Ad
+                    </button>
+                </div>
+                <div class="one-half column">
+                    <p id="requestAdStatus"></p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-half column">
+                    <button class="button-primary">
+                        Play
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="ten columns">
+                    <h4>Record Permission</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-half column">
+                    <button class="button-primary">
+                        Request Permission
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Scripts -->
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

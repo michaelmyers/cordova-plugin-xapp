@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-xapp"
+        version="2.17.0">
+      
+    <name>XAPP Cordova Plugin</name>
+    <description></description>
+    <author>Michael Myers</author>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <engines>
+        <engine name="cordova" version=">=3.0" />
+    </engines>
+
+    <js-module src="www/XAPP.js" name="XAPP">
+        <clobbers target="window.XAPP" />
+    </js-module>
+
+    <!-- android, now build with gradle instead of ant -->
+    <platform name="android">
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="xappmedia.sdk.PlayAdActivity"
+                      android:screenOrientation="portrait"></activity>
+            <activity android:name="xappmedia.sdk.inappbrowser.WebViewActivity"></activity>
+            <activity android:name="xappmedia.sdk.permissions.ui.RequestPermissionsSoftAskActivity"
+                      android:theme="@style/Xapp.Theme.Permissions.Activity"/>
+          </config-file>
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <!--//BLUETOOTH - Necessary for reporting users audioroute.-->
+            <uses-permission android:name="android.permission.BLUETOOTH" />
+            <!--//ACCESS_NETWORK_STATE - Necessary for network optimization and diagnostics.-->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <!--//INTERNET - Necessary for HTTP access-->
+            <uses-permission android:name="android.permission.INTERNET" />
+            <!--//RECORD_AUDIO - Necessary for performing voice recognition-->
+            <uses-permission android:name="android.permission.RECORD_AUDIO" />
+        </config-file>
+
+      <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="XAPP">
+                <param name="android-package" value="com.xappmedia.cordova.xapp.XAPPSDK"/>
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/XAPPSDK.java" target-dir="src/com/xappmedia/cordova/xapp" />
+
+        <!-- This loads the XAPP SDK using a gradle script -->
+        <framework src="src/android/xapp.gradle" custom="true" type="gradleReference" />
+
+     </platform>
+</plugin>

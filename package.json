@@ -1,0 +1,31 @@
+{
+  "name": "cordova-plugin-xapp",
+  "version": "0.0.0",
+  "description": "",
+  "cordova": {
+    "id": "cordova-plugin-xapp",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/user/project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/user/project/issues"
+  },
+  "keywords": [
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "audio",
+    "ads"
+  ],
+  "author": {
+    "name": "Michael Myers"
+  },
+  "license": "MIT"
+}

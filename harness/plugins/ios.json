@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.xappmedia.xapp"
+        },
+        "cordova-plugin-xapp": {
+            "PACKAGE_NAME": "com.xappmedia.xapp"
+        }
+    },
+    "dependent_plugins": {}
+}
