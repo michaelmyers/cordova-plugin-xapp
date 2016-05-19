@@ -4,6 +4,8 @@ package com.xappmedia.cordova.xapp;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 
@@ -58,6 +60,18 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
             return true;
         } else if (action.equals("playAd")) {
             playAd(args.getString(0), callbackContext);
+            return true;
+        } else if (action.equals("recordPermission")) {
+
+            int permissionCheck = ContextCompat.checkSelfPermission(cordova.getActivity(),
+                    Manifest.permission.RECORD_AUDIO);
+
+            if (permissionCheck == PackageManager.PERMISSION_GRANTED) {
+                callbackContext.success("Permission granted");
+            } else {
+                callbackContext.error("Permission not granted");
+            }
+
             return true;
         } else if (action.equals("requestRecordPermission")) {
             requestRecordPermission(args.getString(0), args.getString(1), callbackContext);
