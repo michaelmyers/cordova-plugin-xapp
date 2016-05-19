@@ -16,8 +16,8 @@ xappWrapper.requestAd = function(successCallback, failureCallback) {
     cordova.exec(successCallback, failureCallback, 'XAPP', 'requestAd', []);
 };
 
-xappWrapper.playAd = function(successCallback, failureCallback) {
-    cordova.exec(successCallback, failureCallback, 'XAPP', 'playAd', []);
+xappWrapper.playAd = function(ad, successCallback, failureCallback) {
+    cordova.exec(successCallback, failureCallback, 'XAPP', 'playAd', [ad]);
 };
 
 xappWrapper.requestRecordPermission = function(apiKey, appKey, successCallback, failureCallback) {

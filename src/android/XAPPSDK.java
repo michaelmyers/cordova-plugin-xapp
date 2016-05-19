@@ -15,7 +15,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import xappmedia.sdk.AdRequest;
 import xappmedia.sdk.Advertisement;
@@ -37,8 +41,10 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
 
     CallbackContext sessionStartContext;
     CallbackContext requestStartContext;
+    CallbackContext playbackContext;
     CallbackContext permissionContext;
 
+    HashMap<String, Advertisement> adStore;
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -50,6 +56,9 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
             return true;
         } else if (action.equals("requestAd")) {
             requestAd(callbackContext);
+            return true;
+        } else if (action.equals("playAd")) {
+            playAd(args.getString(0), callbackContext);
             return true;
         } else if (action.equals("requestRecordPermission")) {
             requestRecordPermission(args.getString(0), args.getString(1), callbackContext);
@@ -128,6 +137,18 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
         }
     }
 
+    public void playAd(String ad, CallbackContext callbackContext) {
+
+        if (ad == null || adStore == null) {
+            callbackContext.error("Ad not received");
+        } else {
+            playbackContext = callbackContext;
+            //pull out the ad
+            Advertisement advertisement = adStore.get(ad);
+            xappAds.playAsInterstitial(advertisement);
+        }
+    }
+
     /**
      * XappAds Listener Methods
      */
@@ -151,9 +172,16 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
     @Override
     public void onAdRequestCompleted (final Advertisement advertisement) {
         Log.d(TAG, "Ad received");
-        requestStartContext.success(advertisement.getAdName());
-        //Plays the ad as a full-screen interstitial
-        xappAds.playAsInterstitial(advertisement);
+
+        String adKey = advertisement.getAdName();
+
+        if (adStore == null) {
+            adStore = new HashMap<String, Advertisement>();
+        }
+
+        adStore.put(adKey, advertisement);
+        requestStartContext.success(adKey);
+
     }
 
     @Override
@@ -164,11 +192,13 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
     @Override
     public void onAdCompleted(AdResult adResult) {
         Log.d(TAG, "Ad Complete");
+        playbackContext.success();
     }
 
     @Override
     public void onAdFailed(Error error) {
         Log.e(TAG, "Ad failed " + error.toString());
+        playbackContext.error(error.toString());
     }
 
     @Override
