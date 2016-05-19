@@ -138,13 +138,13 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
 
     @Override
     public void onXappAdsFailed(Error error) {
-        Log.e(TAG, "XappAds failed: " + error.getLocalizedMessage());
+        Log.e(TAG, "XappAds failed: " + error.toString());
         sessionStartContext.error(error.toString());
     }
 
     @Override
     public void onAdRequestFailed(AdRequest adRequest, Error error) {
-        Log.e(TAG, "Ad request failed " + error.getLocalizedMessage());
+        Log.e(TAG, "Ad request failed " + error.toString());
         requestStartContext.error(error.toString());
     }
 
@@ -168,8 +168,7 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
 
     @Override
     public void onAdFailed(Error error) {
-        Log.e(TAG, "Ad failed " + error.getLocalizedMessage());
-        //Failed to get audioFocus or ad failed to play for some other reason described in the error message
+        Log.e(TAG, "Ad failed " + error.toString());
     }
 
     @Override
