@@ -53,5 +53,4 @@ IOS/www/
 .idea/
 
 # Harness
-
 harness/platforms/*
