@@ -17,6 +17,10 @@
  * under the License.
  */
 var app = {
+
+    //Stores the current ad
+    currentAd: "",
+
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -41,6 +45,10 @@ var app = {
 
         document.getElementById('requestAdButton').addEventListener('click', function () {
             app.requestAd();
+        });
+
+        document.getElementById('playAdButton').addEventListener('click', function () {
+            app.playAd()
         });
 
         document.getElementById('requestRecordPermission').addEventListener('click', function () {
@@ -68,20 +76,24 @@ var app = {
     },
 
     requestAd: function () {
+        var self = this;
 
-        XAPP.requestAd(function () {
-            document.getElementById("requestAdStatus").textContent = 'Ad Received';
+        XAPP.requestAd(function (ad) {
+            self.currentAd = ad;
+            document.getElementById("requestAdStatus").textContent = 'Ad ' + self.currentAd + ' Received ' + ad;
         }, function (error) {
             document.getElementById("requestAdStatus").textContent = 'Error: ' + error;
         });
     },
 
     playAd: function () {
+        var self = this;
 
-        XAPP.playAd(function () {
-
+        XAPP.playAd(self.currentAd, function () {
+            document.getElementById("playAdStatus").textContent = 'Ad Complete';
+            self.currentAd = ""
         }, function (error) {
-
+            document.getElementById("playAdStatus").textContent = 'Ad Complete with error: ' + error;
         });
     },
 
