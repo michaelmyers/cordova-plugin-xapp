@@ -5,21 +5,20 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
+
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CallbackContext;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+
 
 import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Enumeration;
+
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import xappmedia.sdk.AdRequest;
 import xappmedia.sdk.Advertisement;
