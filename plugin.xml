@@ -26,7 +26,8 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity android:name="xappmedia.sdk.PlayAdActivity"
                       android:screenOrientation="portrait"></activity>
-            <activity android:name="xappmedia.sdk.inappbrowser.WebViewActivity" android:theme="@style/Theme.AppCompat.Light"></activity>
+            <activity android:name="xappmedia.sdk.inappbrowser.WebViewActivity"
+                      android:theme="@style/Theme.AppCompat.Light"></activity>
             <activity android:name="xappmedia.sdk.permissions.ui.RequestPermissionsSoftAskActivity"
                       android:theme="@style/Xapp.Theme.Permissions.Activity"/>
           </config-file>
