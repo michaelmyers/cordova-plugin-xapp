@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-xapp"
         version="2.17.0">
-      
+
     <name>XAPP Cordova Plugin</name>
     <description></description>
     <author>Michael Myers</author>
@@ -26,7 +26,7 @@
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity android:name="xappmedia.sdk.PlayAdActivity"
                       android:screenOrientation="portrait"></activity>
-            <activity android:name="xappmedia.sdk.inappbrowser.WebViewActivity"></activity>
+            <activity android:name="xappmedia.sdk.inappbrowser.WebViewActivity" android:theme="@style/Theme.AppCompat.Light"></activity>
             <activity android:name="xappmedia.sdk.permissions.ui.RequestPermissionsSoftAskActivity"
                       android:theme="@style/Xapp.Theme.Permissions.Activity"/>
           </config-file>
