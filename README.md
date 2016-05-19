@@ -5,4 +5,4 @@
 
 ## Harness
 
-The harness is a simple program that tests the plugin.  When
+The harness is a simple program that tests the plugin.
