@@ -34,16 +34,13 @@
 
         <div class="container">
 
-            <div id="xappWrapper" style="display:none;">
-                <div class="row">
-                    <div class="two columns">
-                        <p id="version"> </p>
-                    </div>
-                    <div class="offset-by-two three columns" style="display:none;">
-                        <span id="deviceready" class="status-indicator received blink">Device Ready</span>
-                    </div>
+            <div class="row">
+                <div class="two columns">
+                    <span  id="deviceready" style="display:none;" class="status-indicator blink">Device Ready with XAPP version: <span id="version"></span></span>
                 </div>
+            </div>
 
+            <div id="xappWrapper" style="display:none;">
                 <div class="row">
                     <div class="ten columns">
                         <h4>XAPP Playback</h4>
@@ -89,6 +86,9 @@
                     <div class="ten columns">
                         <h4>Record Permission</h4>
                     </div>
+                </div>
+                <div class="row">
+                    <p class="twelve columns">Requesting record permission is usually called when the user enters the app.  In order to keep the call fast & responsive, the first time the button is pressed it caches the resources needed to request the permission (images for example).  Pressing it again will then display the record permission workflow.
                 </div>
                 <div class="row">
                     <div class="one-half column">

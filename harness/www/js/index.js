@@ -56,9 +56,11 @@ var app = {
         })
 
         XAPP.version(function (version) {
+            //display the version number at the top.
             document.getElementById("version").textContent =  version;
         });
 
+        //depending on if we have record permission, display the appropriate buttons
         XAPP.recordPermission(function ()  {
             document.getElementById("xappWrapper").style.display = "block";
         }, function () {
@@ -67,8 +69,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        console.log('Received Event: ' + id);
-
         document.getElementById(id).setAttribute('style', 'display:block;');
     },
 
@@ -105,6 +105,10 @@ var app = {
 
     requestRecordPermission: function () {
         XAPP.requestRecordPermission('b454146b-0b0f-4f16-91d5-9637ccddca10', '22e1c6db-94a7-4348-a3c4-c3c562f27860', function (message) {
+
+            document.getElementById("xappWrapper").style.display = "block";
+            document.getElementById("recordPermissionWrapper").style.display = "none";
+
             document.getElementById("requestRecordPermissionStatus").textContent = message;
         }, function (error) {
             document.getElementById("requestRecordPermissionStatus").textContent = error;
