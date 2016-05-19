@@ -58,6 +58,12 @@ var app = {
         XAPP.version(function (version) {
             document.getElementById("version").textContent =  version;
         });
+
+        XAPP.recordPermission(function ()  {
+            document.getElementById("xappWrapper").style.display = "block";
+        }, function () {
+            document.getElementById("recordPermissionWrapper").style.display = "block";
+        });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

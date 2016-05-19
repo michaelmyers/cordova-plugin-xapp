@@ -26,7 +26,6 @@
 
         <link rel="stylesheet" type="text/css" href="components/skeleton/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="components/skeleton/css/skeleton.css">
-
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
         <title>XAPP Plugin</title>
@@ -35,69 +34,72 @@
 
         <div class="container">
 
-            <!-- just use a number and class 'column' or 'columns' -->
-            <div class="row">
-                <div class="two columns">
-                    <p id="version"> </p>
+            <div id="xappWrapper" style="display:hidden;">
+                <div class="row">
+                    <div class="two columns">
+                        <p id="version"> </p>
+                    </div>
+                    <div class="offset-by-two three columns" style="display:none;">
+                        <span id="deviceready" class="status-indicator received blink">Device Ready</span>
+                    </div>
                 </div>
-                <div class="offset-by-two three columns" style="display:none;">
-                    <span id="deviceready" class="status-indicator received blink">Device Ready</span>
+
+                <div class="row">
+                    <div class="ten columns">
+                        <h4>XAPP Playback</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="one-half column">
+                        <button id="startSessionButton" class="button-primary">
+                            Start Session
+                        </button>
+                    </div>
+                    <div class="one-half column">
+                        <p id="startSessionStatus"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="one-half column">
+                        <button id="requestAdButton" class="button-primary">
+                            Request Ad
+                        </button>
+                    </div>
+                    <div class="one-half column">
+                        <p id="requestAdStatus"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="one-half column">
+                        <button id="playAdButton" class="button-primary">
+                            Play
+                        </button>
+                    </div>
+                    <div class="one-half column">
+                        <p id="playAdStatus"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="ten columns">
+                        <h4>Record Permission</h4>
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="ten columns">
-                    <h4>XAPP Playback</h4>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="one-half column">
-                    <button id="startSessionButton" class="button-primary">
-                        Start Session
-                    </button>
-                </div>
-                <div class="one-half column">
-                    <p id="startSessionStatus"></p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="one-half column">
-                    <button id="requestAdButton" class="button-primary">
-                        Request Ad
-                    </button>
-                </div>
-                <div class="one-half column">
-                    <p id="requestAdStatus"></p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="one-half column">
-                    <button id="playAdButton" class="button-primary">
-                        Play
-                    </button>
-                </div>
-                <div class="one-half column">
-                    <p id="playAdStatus"></p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="ten columns">
-                    <h4>Record Permission</h4>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="one-half column">
-                    <button id="requestRecordPermission" class="button-primary">
-                        Request Record Permission
-                    </button>
-                </div>
-                <div class="one-half column">
-                    <p id="requestRecordPermissionStatus"></p>
+            <div id="recordPermissionWrapper" style="display:hidden;">
+                <div class="row">
+                    <div class="one-half column">
+                        <button id="requestRecordPermission" class="button-primary">
+                            Request Record Permission
+                        </button>
+                    </div>
+                    <div class="one-half column">
+                        <p id="requestRecordPermissionStatus"></p>
+                    </div>
                 </div>
             </div>
         </div>
