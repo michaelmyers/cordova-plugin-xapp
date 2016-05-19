@@ -61,7 +61,7 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
 
         permissionContext = callbackContext;
 
-        ArrayList<Permission> collection = new ArrayList<>();
+        ArrayList<Permission> collection = new ArrayList<Permission>();
         collection.add(Permission.newPermission(Manifest.permission.RECORD_AUDIO).build());
 
         Intent requestPermission = RequestPermissionsSoftAskActivity.newIntent(collection)
