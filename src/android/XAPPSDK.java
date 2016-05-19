@@ -159,7 +159,7 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
 
         if (adStore == null) {
             callbackContext.error("A ad must be requested before it can be played.");
-        } else if (ad != null && !ad.isEmpty()) {
+        } else if (ad == null && ad.isEmpty()) {
             callbackContext.error("Ad doesn't exist.");
         } else {
             playbackContext = callbackContext;
