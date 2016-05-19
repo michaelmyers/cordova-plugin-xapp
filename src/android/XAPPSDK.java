@@ -118,10 +118,14 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
 
     public void requestAd(CallbackContext callbackContext) {
 
-        requestStartContext = callbackContext;
+        if (xappAds == null) {
+            callbackContext.error("XAPP must be started before you can request an ad");
+        } else {
+            requestStartContext = callbackContext;
 
-        AdRequest adRequest = new AdRequest();
-        xappAds.requestAd(adRequest);
+            AdRequest adRequest = new AdRequest();
+            xappAds.requestAd(adRequest);
+        }
     }
 
     /**
