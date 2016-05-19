@@ -112,16 +112,17 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
                     for (Permission p : denied) {
                         sb.append(p.getName()).append("\n");
                     }
-                }
 
-                if (!granted.isEmpty()) {
+                    permissionContext.error(sb.toString());
+
+                } else if (!granted.isEmpty()) {
                     sb.append("The following have been granted: \n");
                     for (Permission p : granted) {
                         sb.append(p.getName()).append("\n");
                     }
-                }
 
-                permissionContext.success(sb.toString());
+                    permissionContext.success(sb.toString());
+                }
             }
         }
     }
