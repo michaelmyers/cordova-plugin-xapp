@@ -4,5 +4,5 @@
 cd harness
 cordova platform remove android
 cordova plugin remove cordova-plugin-xapp
-cordova platform add android
 cordova plugin add --link ../
+cordova platform add android
