@@ -81,5 +81,5 @@ This will setup the platforms with the plugin.  Then open Android Studio and ope
 
 ## TODO
 
-- [] iOS Support
-- [] Support other types of companions
+- [ ] iOS Support
+- [ ] Support other types of companions
