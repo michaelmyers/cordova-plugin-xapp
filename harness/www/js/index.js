@@ -42,7 +42,11 @@ var app = {
         document.getElementById('requestAdButton').addEventListener('click', function () {
             app.requestAd();
         });
-        
+
+        document.getElementById('requestRecordPermission').addEventListener('click', function () {
+            app.requestRecordPermission();
+        })
+
         XAPP.version(function (version) {
             document.getElementById("version").textContent =  version;
         });
@@ -53,7 +57,7 @@ var app = {
 
         document.getElementById(id).setAttribute('style', 'display:block;');
     },
-    
+
     startSession: function () {
 
         XAPP.startSession('b454146b-0b0f-4f16-91d5-9637ccddca10', '22e1c6db-94a7-4348-a3c4-c3c562f27860', function() {
@@ -62,7 +66,7 @@ var app = {
             document.getElementById("startSessionStatus").textContent = 'Error: ' + error;
         });
     },
-    
+
     requestAd: function () {
 
         XAPP.requestAd(function () {
@@ -78,6 +82,17 @@ var app = {
 
         }, function (error) {
 
+        });
+    },
+
+    requestRecordPermission: function () {
+        console.log("request record permission");
+        XAPP.requestRecordPermission('b454146b-0b0f-4f16-91d5-9637ccddca10', '22e1c6db-94a7-4348-a3c4-c3c562f27860', function (message) {
+            console.log("request record permission success");
+            document.getElementById("requestRecordPermissionStatus").textContent = message;
+        }, function (error) {
+            document.getElementById("requestRecordPermissionStatus").textContent = error;
+            console.log("request record permission failed: " + error);
         });
     }
 };
