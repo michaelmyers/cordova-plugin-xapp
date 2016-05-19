@@ -103,12 +103,17 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
         }
     }
 
-    public void startSession(String apiKey, String appKey, CallbackContext callbackContext) {
+    public void startSession(final String apiKey, final String appKey, CallbackContext callbackContext) {
 
         sessionStartContext = callbackContext;
-
         xappAds = new XappAds();
-        xappAds.start(apiKey, appKey, null, null, this.cordova.getActivity().getApplicationContext(), this);
+        final XAPPSDK listener = this;
+
+        cordova.getThreadPool().execute(new Runnable() {
+            public void run() {
+                xappAds.start(apiKey, appKey, null, null, cordova.getActivity().getApplicationContext(), listener);
+            }
+        });
     }
 
     public void requestAd(CallbackContext callbackContext) {
@@ -167,6 +172,4 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
     public void onXappAdsTerminated() {
         Log.d(TAG, "XappAds terminated");
     }
-
-
 }
