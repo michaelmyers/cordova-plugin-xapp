@@ -61,6 +61,7 @@ public class XAPPSDK extends CordovaPlugin implements XappAdsListener {
             return true;
         } else if (action.equals("requestRecordPermission")) {
             requestRecordPermission(args.getString(0), args.getString(1), callbackContext);
+            return true;
         }
         return false;
     }
